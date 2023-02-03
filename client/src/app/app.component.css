@@ -1,15 +1,19 @@
 .container{
+    position: relative;
+    background-color: rgb(26, 41, 54);
+    height: 100vh;
+    width: 100vw;
+    padding: 96px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    background-color: rgb(26, 41, 54);
-    padding: 48px 128px;
-    height: 100%;
+    justify-content: center;
 }
 
 .title{
     font-size: 48px;
     font-weight: 700;
     color: rgb(196, 216, 233);
+    position: absolute;
+    top:96px;
 }
