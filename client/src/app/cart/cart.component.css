@@ -1,0 +1,33 @@
+.wrapper{
+    padding: 24px 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+.title{
+    font-size: 36px;
+    font-weight: 600;
+    border-bottom: 4px solid black;
+    width: max-content;
+}
+.cart-items{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.checkout{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+}
+.price, .price span{
+    font-size: 28px;
+    font-weight: 600;
+}
+.btn-checkout{
+    font-size: 24px;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 12px 36px;
+}

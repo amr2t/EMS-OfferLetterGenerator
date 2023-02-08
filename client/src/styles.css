@@ -17,3 +17,6 @@ input[type=password]{
   letter-spacing: 0.125em;
   font-weight: 700;
 }
+button{
+  cursor: pointer;
+}
