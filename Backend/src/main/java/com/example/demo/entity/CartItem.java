@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 public class CartItem {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
 	@ManyToOne
 	private Cart fromCart;
