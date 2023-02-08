@@ -1,0 +1,5 @@
+@import url(../login/login.component.css);
+
+.form-field input{
+    width: 360px;
+}
