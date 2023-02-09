@@ -12,18 +12,11 @@
   box-sizing: border-box;
 }
 
-/* link color reset & changed hover*/
-a{
-  font-size: 14px;
-  font-weight: 700;
-  color: inherit;
-}
-a:hover{
-  text-decoration: underline;
-}
-
 /* changed password DOTS styling */
 input[type=password]{
   letter-spacing: 0.125em;
   font-weight: 700;
+}
+button{
+  cursor: pointer;
 }

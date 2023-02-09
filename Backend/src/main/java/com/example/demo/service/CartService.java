@@ -89,6 +89,22 @@ public class CartService {
 		String success = "Successfully deleted";
 		return "\""+success+"\"";
 	}
+	
+	public String deleteOnlyItemFromCart(UUID id) throws Exception {
+		Cart tempCart = repo.findById(id).orElse(null);
+		List<CartItem> list = tempCart.getItem();
+		list.forEach(i->{
+			try {
+				CIservice.deleteCartItem(i.getId());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});
+//		repo.deleteById(id);
+		String success = "Successfully deleted";
+		return "\""+success+"\"";
+	}
 
 	public Cart findById(UUID id) {
 		// TODO Auto-generated method stub

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.dao.UserRepo;
 import com.example.demo.entity.Cart;
 import com.example.demo.entity.CartItem;
+import com.example.demo.entity.CustomerOrder;
 import com.example.demo.entity.Product;
 import com.example.demo.entity.User;
 
@@ -31,6 +32,9 @@ public class UserService {
 	
 	@Autowired
 	private CartService Cservice;
+	
+	@Autowired
+	private CustomerOrderService COservice;
 	
 	public User saveNewUser(User user) throws Exception{
 		User tempObj = repo.findByEmail(user.getEmail());
@@ -187,5 +191,32 @@ public class UserService {
 		Cservice.deleteItemFromCart(tempUser.getCart().getId(),tempCartItem);
 		String success = "Successfully Deleted";
 		return "\""+success+"\"";
+	}
+
+	public CustomerOrder fetchOrderDetails(UUID id) throws Exception{
+		User tempUser = repo.findById(id).orElse(null);
+		Cart tempCart = tempUser.getCart();
+		if(tempCart == null) {
+			throw new Exception("No item exists in Cart");
+		}
+		CustomerOrder tempCustomerOrder = COservice.saveOrder(tempCart,tempUser);
+//		List<CustomerOrder> list = COservice.saveOrder(tempCart,tempUser);
+		repo.findById(id).orElse(null).getOrderList().add(tempCustomerOrder);
+		Cservice.deleteOnlyItemFromCart(tempUser.getCart().getId());
+		repo.findById(id).orElse(null).setCart(new Cart());
+		return tempCustomerOrder;
+	}
+
+	public List<CustomerOrder> fetchAllOrders(UUID id) throws Exception {
+		User tempUser = repo.findById(id).orElse(null);
+		if(tempUser == null) {
+			throw new Exception("User didn't exists");
+		}
+		return tempUser.getOrderList();
+	}
+
+	public List<CustomerOrder> getAllOrders() {
+		
+		return COservice.getAllOrders();
 	}
 }
