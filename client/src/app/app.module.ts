@@ -19,6 +19,7 @@ import { UserslistitemComponent } from './userslistitem/userslistitem.component'
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { UserordersComponent } from './userorders/userorders.component';
 import { UserordersitemComponent } from './userordersitem/userordersitem.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UserordersitemComponent } from './userordersitem/userordersitem.compone
     UserslistitemComponent,
     AddproductComponent,
     UserordersComponent,
-    UserordersitemComponent
+    UserordersitemComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

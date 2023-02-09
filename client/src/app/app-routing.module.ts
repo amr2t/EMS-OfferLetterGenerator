@@ -9,6 +9,7 @@ import { OrderslistComponent } from './orderslist/orderslist.component';
 import { UserslistComponent } from './userslist/userslist.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { UserordersComponent } from './userorders/userorders.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'userslist', component: UserslistComponent },
   { path: 'addproduct', component: AddproductComponent },
   { path: 'orders', component: UserordersComponent },
+  { path: 'checkout', component: CheckoutComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
