@@ -10,8 +10,12 @@ import { NavComponent } from './nav/nav.component';
 import { CardproductComponent } from './cardproduct/cardproduct.component';
 import { CartComponent } from './cart/cart.component';
 import { CartitemComponent } from './cartitem/cartitem.component';
-import { AdminComponent } from './admin/admin.component';
-import { ProductlistitemComponent } from './productlistitem/productlistitem.component';
+import { ProductslistComponent } from './productslist/productslist.component';
+import { ProductslistitemComponent } from './productslistitem/productslistitem.component';
+import { OrderslistComponent } from './orderslist/orderslist.component';
+import { OrderslistitemComponent } from './orderslistitem/orderslistitem.component';
+import { UserslistComponent } from './userslist/userslist.component';
+import { UserslistitemComponent } from './userslistitem/userslistitem.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +27,12 @@ import { ProductlistitemComponent } from './productlistitem/productlistitem.comp
     CardproductComponent,
     CartComponent,
     CartitemComponent,
-    AdminComponent,
-    ProductlistitemComponent
+    ProductslistComponent,
+    ProductslistitemComponent,
+    OrderslistComponent,
+    OrderslistitemComponent,
+    UserslistComponent,
+    UserslistitemComponent
   ],
   imports: [
     BrowserModule,

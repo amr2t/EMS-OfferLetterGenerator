@@ -1,0 +1,5 @@
+@import url(../productslistitem/productslistitem.component.css);
+
+.orderid{
+    display: flex;
+}
