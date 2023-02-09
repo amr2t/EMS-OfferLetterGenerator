@@ -1,0 +1,30 @@
+.card{
+    -webkit-box-shadow: 8px 8px 24px -8px rgba(0, 132, 255, 0.28);
+    -moz-box-shadow: 8px 8px 24px -8px rgba(0,132,255,0.28);
+    box-shadow: 8px 8px 24px -8px rgba(0, 0, 0, 0.089);
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+
+    border-radius: 24px;
+}
+.card img{
+    height: 180px;
+    width: 100%;
+    overflow: hidden;
+}
+.card h4{
+    font-size: 24px;
+    font-weight: 500;
+}
+.card p{
+    font-size: 16px;
+    font-weight: 400;
+}
+.card h6{
+    font-size: 24px;
+    font-weight: 600;
+}

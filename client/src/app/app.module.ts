@@ -7,6 +7,10 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
+import { CardproductComponent } from './cardproduct/cardproduct.component';
+import { CartComponent } from './cart/cart.component';
+import { CartitemComponent } from './cartitem/cartitem.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +18,15 @@ import { NavComponent } from './nav/nav.component';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    NavComponent
+    NavComponent,
+    CardproductComponent,
+    CartComponent,
+    CartitemComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
