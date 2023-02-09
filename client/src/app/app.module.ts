@@ -16,6 +16,7 @@ import { OrderslistComponent } from './orderslist/orderslist.component';
 import { OrderslistitemComponent } from './orderslistitem/orderslistitem.component';
 import { UserslistComponent } from './userslist/userslist.component';
 import { UserslistitemComponent } from './userslistitem/userslistitem.component';
+import { AddproductComponent } from './addproduct/addproduct.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UserslistitemComponent } from './userslistitem/userslistitem.component'
     OrderslistComponent,
     OrderslistitemComponent,
     UserslistComponent,
-    UserslistitemComponent
+    UserslistitemComponent,
+    AddproductComponent
   ],
   imports: [
     BrowserModule,

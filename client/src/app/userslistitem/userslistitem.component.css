@@ -1,0 +1,5 @@
+@import url(../productslistitem/productslistitem.component.css);
+.title{
+    font-size: 22px;
+    font-weight: 500;
+}

@@ -1,5 +1,11 @@
 @import url(../productslistitem/productslistitem.component.css);
-
+.order-details{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
 .orderid{
     display: flex;
+    align-items: baseline;
+    gap: 4px;
 }
