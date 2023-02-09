@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Cart;
+import com.example.demo.entity.CustomerOrder;
 import com.example.demo.entity.Product;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
@@ -95,5 +96,20 @@ public class Controller {
 	public String deleteFromCart(@PathVariable("id") UUID id,@PathVariable("prodid") UUID productId) 
 			throws Exception {
 		return Uservice.deleteProductFromCart(id,productId);
+	}
+	
+	@GetMapping("/{id}/paymentSuccessful")
+	public CustomerOrder paymentSuccessful(@PathVariable("id")UUID id) throws Exception {
+		return Uservice.fetchOrderDetails(id);
+	}
+	
+	@GetMapping("/{id}/getAllOrders")
+	public List<CustomerOrder> getUserOrders(@PathVariable("id")UUID id) throws Exception{
+		return Uservice.fetchAllOrders(id);
+	}
+	
+	@GetMapping("/getOrders")
+	public List<CustomerOrder> getAllOrders() throws Exception{
+		return Uservice.getAllOrders();
 	}
 }

@@ -1,11 +1,16 @@
 package com.example.demo.entity;
 
+import java.util.List;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,20 +20,32 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Embeddable
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
 	private String name;
 	private String email;
 	private String password;
 	@OneToOne
 	private Cart cart;
+	
+	@OneToMany(mappedBy="fromUser")
+	private List<CustomerOrder> orderList;
+	
 	private String roles;
 	private String address;
 	private long phone;
 	
+	@JsonManagedReference
+	public List<CustomerOrder> getOrderList() {
+		return orderList;
+	}
+	public void setOrderList(List<CustomerOrder> orderList) {
+		this.orderList = orderList;
+	}
 	public UUID getId() {
 		return id;
 	}
@@ -80,8 +97,9 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", cart=" + cart
-				+ ", roles=" + roles + ", address=" + address + ", phone=" + phone + "]";
+				+ ", orderList=" + orderList + ", roles=" + roles + ", address=" + address + ", phone=" + phone + "]";
 	}
+	
 	
 	
 	
