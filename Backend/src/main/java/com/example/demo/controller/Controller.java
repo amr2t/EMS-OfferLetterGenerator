@@ -3,8 +3,14 @@ package com.example.demo.controller;
 import java.util.List;
 import java.util.UUID;
 
+import com.example.demo.dto.AuthRequest;
+import com.example.demo.service.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +30,12 @@ public class Controller {
 	
 	@Autowired
 	private UserService Uservice;
+
+	@Autowired
+	private JwtService jwtService;
+
+	@Autowired
+	private AuthenticationManager authenticationManager;
 	
 	@PostMapping("/register")
 	public User register(@RequestBody User user) throws Exception {
@@ -37,6 +49,7 @@ public class Controller {
 
 	
 	@GetMapping("{id}/getCart")
+	@PreAuthorize("hasAuthority('ROLE_USER')")
 	public Cart getCart(@PathVariable("id") UUID id){
 		return Uservice.getUserCart(id);
 	}
@@ -110,17 +123,32 @@ public class Controller {
 	}
 	
 	@GetMapping("/{id}/paymentSuccessful")
+	@PreAuthorize("hasAuthority('ROLE_USER')")
 	public CustomerOrder paymentSuccessful(@PathVariable("id")UUID id) throws Exception {
 		return Uservice.fetchOrderDetails(id);
 	}
 	
 	@GetMapping("/{id}/getAllOrders")
+	@PreAuthorize("hasAuthority('ROLE_USER')")
 	public List<CustomerOrder> getUserOrders(@PathVariable("id")UUID id) throws Exception{
 		return Uservice.fetchAllOrders(id);
 	}
 	
 	@GetMapping("/getOrders")
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 	public List<CustomerOrder> getAllOrders() throws Exception{
 		return Uservice.getAllOrders();
 	}
+
+	@PostMapping("/authenticate")
+	public String authenticateAndGetToken(@RequestBody AuthRequest authRequest){
+		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
+		if(authentication.isAuthenticated()){
+			return jwtService.generateToken(authRequest.getUsername());
+		}else {
+			throw new UsernameNotFoundException("invalid user request !");
+		}
+
+	}
+
 }
