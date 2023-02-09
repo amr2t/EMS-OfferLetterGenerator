@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.UserRepo;
@@ -17,7 +18,9 @@ import com.example.demo.entity.User;
 
 @Service
 public class UserService {
-	
+
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	@Autowired
 	private UserRepo repo;
 	
@@ -38,6 +41,7 @@ public class UserService {
 		if(tempObj!=null) {
 			throw new Exception("This user already exists ");
 		}
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		if(user.getCart()==null) {
 			Cart tempCart = new Cart();
 			Cservice.saveCart(tempCart);
@@ -47,6 +51,7 @@ public class UserService {
 	}
 
 	public User getOldUser(User user) throws Exception{
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		User tempObj = repo.findByEmail(user.getEmail());
 		if(tempObj==null) {
 			throw new Exception("User didn't exists");
@@ -54,6 +59,7 @@ public class UserService {
 		else if(!user.getPassword().equals(tempObj.getPassword())) {
 			throw new Exception("Bad credentials");
 		}
+
 		return tempObj;
 	}
 

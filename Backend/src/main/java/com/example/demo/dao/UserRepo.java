@@ -48,6 +48,6 @@ public interface UserRepo extends JpaRepository<User, UUID> {
 	@Query("update Customer c set c.roles = :roles where c.id = :id")
 	public int updateRoles(@Param("id")UUID id,@Param("roles") String roles);
 
-	
+
 
 }
