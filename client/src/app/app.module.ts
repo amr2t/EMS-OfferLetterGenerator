@@ -11,6 +11,7 @@ import { CardproductComponent } from './cardproduct/cardproduct.component';
 import { CartComponent } from './cart/cart.component';
 import { CartitemComponent } from './cartitem/cartitem.component';
 import { AdminComponent } from './admin/admin.component';
+import { ProductlistitemComponent } from './productlistitem/productlistitem.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AdminComponent } from './admin/admin.component';
     CardproductComponent,
     CartComponent,
     CartitemComponent,
-    AdminComponent
+    AdminComponent,
+    ProductlistitemComponent
   ],
   imports: [
     BrowserModule,

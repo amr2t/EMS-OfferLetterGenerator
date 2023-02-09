@@ -1,0 +1,94 @@
+.admin{
+    display: flex;
+}
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: max-content;
+    height: 100vh;
+    background-color: rgb(217, 248, 248);
+}
+
+.title {
+    padding: 72px 48px 0px 48px;
+    font-size: 40px;
+    font-weight: 700;
+    color: rgb(22, 97, 114);
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 24px;
+}
+
+.menu-item {
+    text-align: center;
+    border-left: 8px solid transparent;
+    padding: 24px 72px;
+    font-size: 24px;
+    font-weight: 500;
+    color: rgb(21, 77, 77);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+}
+
+.menu-item:hover {
+    background-color: rgb(168, 216, 216);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+}
+
+.menu-item.active {
+    border-left: 8px solid rgb(59, 136, 136);
+    background-color: rgb(168, 216, 216);
+}
+
+.btn-logout {
+    text-align: center;
+    width: 100%;
+    padding: 24px;
+    background-color: rgb(28, 70, 70);
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+}
+
+.btn-logout:hover {
+    background-color: rgb(44, 83, 83);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+}
+
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 72px 144px;
+}
+.dashboard-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.dashboard-head h1{
+    font-size: 36px;
+    font-weight: 600;
+    color: rgb(44, 83, 83);
+}
+.btn-addproduct{
+    font-size: 24px;
+    font-weight: 500;
+    padding:12px 36px;
+    border-radius: 8px;
+    color: rgb(44, 83, 83);
+    background-color: rgb(222, 247, 247);
+}
+.products{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
