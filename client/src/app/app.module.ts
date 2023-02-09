@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +10,7 @@ import { NavComponent } from './nav/nav.component';
 import { CardproductComponent } from './cardproduct/cardproduct.component';
 import { CartComponent } from './cart/cart.component';
 import { CartitemComponent } from './cartitem/cartitem.component';
-import { EcomService } from './ecom.service';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +21,14 @@ import { EcomService } from './ecom.service';
     NavComponent,
     CardproductComponent,
     CartComponent,
-    CartitemComponent
+    CartitemComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
   ],
-  providers: [EcomService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
