@@ -51,7 +51,7 @@ public class UserService {
 	}
 
 	public User getOldUser(User user) throws Exception{
-		user.setPassword(passwordEncoder.encode(user.getPassword()));
+
 		User tempObj = repo.findByEmail(user.getEmail());
 		if(tempObj==null) {
 			throw new Exception("User didn't exists");
