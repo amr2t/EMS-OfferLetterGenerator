@@ -1,0 +1,41 @@
+<div class="card center">
+    <form action="" method="get">
+        <h2 class="form-title" >ORDER SUMMARY</h2>
+        <img src="../../../assets/16271-payment-successful.gif" alt="payment successful">
+        <table>
+            <thead>
+                <tr>
+                    <th>S.no</th>
+                    <th>Product</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of tempProd;let j=index">
+                    <td>{{j+1}}</td>
+                    <td>{{i.prodHeadline}}</td>
+                    <td>{{i.prodPrice}}</td>
+                    <td>{{i.prodQuantity}}</td>
+                    <td>₹ {{i.prodPrice * i.prodQuantity}}</td>
+                </tr>
+                <!-- <tr>
+                    <td>1</td>
+                    <td>Aalu Bade</td>
+                    <td>10</td>
+                    <td>3</td>
+                    <td>₹ 30</td>
+                </tr> -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">Total Amount: </td>
+                    <td>₹ {{order.totalPay}}</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <!-- <p>Don't have an account? <a [href]="'signup'">Sign Up Now!</a></p> -->
+    </form>
+</div>

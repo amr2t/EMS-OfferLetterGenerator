@@ -1,0 +1,17 @@
+@import url(../productslist/productslist.component.css);
+
+.prodContainer{
+    margin-top: 20px;
+    height: 30rem;
+    overflow-y: scroll;
+}
+
+.prodContainer::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge add Firefox */
+  .prodContainer {
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+  }

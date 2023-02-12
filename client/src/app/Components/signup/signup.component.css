@@ -1,0 +1,20 @@
+@import url(../login/login.component.css);
+
+.form-field input{
+    width: 240px;
+}
+
+.heightfixer{
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+.heightfixer::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge add Firefox */
+  .heightfixer {
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+  }

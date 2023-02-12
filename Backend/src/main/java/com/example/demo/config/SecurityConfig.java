@@ -1,5 +1,6 @@
 package com.example.demo.config;
 
+import com.example.demo.BackendApplication;
 import com.example.demo.fillter.JwtAuthFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -17,14 +18,20 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-public class SecurityConfig {
+//public class SecurityConfig implements WebMvcConfigurer {
+public class SecurityConfig implements WebMvcConfigurer {
 
     @Autowired
     private JwtAuthFilter authFilter;
+    
+    @Autowired
+    private BackendApplication corsFilter;
 
     @Bean
     public UserDetailsService userDetailsService(){
@@ -41,7 +48,7 @@ public class SecurityConfig {
         return http
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/getProducts","/register","/login","/authenticate")
+                .requestMatchers("/getProducts","/register","/signin","/authenticate")
                 .permitAll()
                 .and()
                 .authorizeHttpRequests()
@@ -52,6 +59,7 @@ public class SecurityConfig {
                 .and()
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilter(corsFilter.corsFilter())
                 .build();
 
     }
@@ -75,5 +83,13 @@ public class SecurityConfig {
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
+    
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        registry.addMapping("/**")
+//        		.allowedOrigins("http://localhost:4200")
+//        		.allowedHeaders("*")
+//                .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS").allowedOrigins("*");
+//    }
 
 }

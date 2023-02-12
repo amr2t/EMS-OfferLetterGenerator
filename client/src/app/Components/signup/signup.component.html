@@ -1,0 +1,33 @@
+<div class="card center heightfixer">
+    <form action="" (ngSubmit)="onSubmit()" method="get">
+        <h3 class="form-title">SIGN UP</h3>
+        <div class="form-field">
+            <label for="name">Full Name:</label>
+            <input required type="text" name="name" id="name" [(ngModel)]="user.name" placeholder="John Doe">
+        </div>
+        <div class="form-field">
+            <label for="email">Email Address:</label>
+            <input required type="email" name="email" id="email" [(ngModel)]="user.email" placeholder="abc@xyz.com">
+        </div>
+        <div class="form-field">
+            <label for="password">Password:</label>
+            <input required type="password" name="password" id="password" [(ngModel)]="user.password" placeholder="123456789">
+        </div>
+        <div class="form-field">
+            <label for="repassword">Re-enter Password:</label>
+            <input required type="password" name="repassword" id="repassword"  placeholder="123456789">
+        </div>
+        <div class="form-field">
+            <label for="address">Address:</label>
+            <input required type="text" name="address" id="address" [(ngModel)]="user.address" placeholder="1 ABC Street, XYZ, MN XXXX25">
+        </div>
+        <div class="form-field">
+            <label for="phone">Contact No:</label>
+            <input required type="number" name="phone" id="phone" [(ngModel)]="user.phone" placeholder="9898989898">
+        </div>
+        <span>
+            <input type="submit" value="Sign Up">
+        </span>
+        <p>Already have an account? <a [href]="'login'">Log In Instead</a></p>
+    </form>
+</div>

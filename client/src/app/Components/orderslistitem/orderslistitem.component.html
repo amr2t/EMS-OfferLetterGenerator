@@ -1,0 +1,22 @@
+<div class="wrapper">
+    <div class="order-details">
+        
+        <h6 class="prodid orderid">Order id:
+            <span class="prodid">
+                {{order.id}}
+            </span>
+        </h6>
+    </div>
+    <div class="main">
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#25AE88;" cx="25" cy="25" r="25"></circle> <polyline style="fill:none;stroke:#FFFFFF;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points=" 38,15 22,33 12,25 "></polyline> </g></svg>
+        <!-- <img src="https://via.placeholder.com/128/d3d3d3/000000/?text=Product Image" alt="product-image"> -->
+        <div class="details">
+            <div>
+                <h4>Order Date</h4>
+                <h6>{{order.orderDate}}</h6>
+                <h4>Order Amount</h4>
+                <h6>₹{{order.totalPay}}</h6>
+            </div>
+        </div>
+    </div>
+</div>

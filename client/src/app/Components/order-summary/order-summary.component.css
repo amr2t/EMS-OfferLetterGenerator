@@ -1,0 +1,26 @@
+@import url("../login/login.component.css");
+
+.card{
+    text-align: center;
+    width: fit-content;
+    align-items: center;
+}
+
+.card img{
+    width: 240px;
+    height: inherit;
+    align-self: center;
+}
+thead th{
+    border-right: 0px;
+    border-left: 0px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+}
+
+td {
+    padding: 5px 25px; 
+}
+tfoot td{
+    border: 1px solid;
+}

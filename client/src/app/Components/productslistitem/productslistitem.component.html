@@ -1,0 +1,17 @@
+<div class="wrapper">
+    <h6 class="prodid">Product id: {{prod.productid}}</h6>
+    <div class="main">
+        <img src="{{prod.imageurl}}" class="prodimg" alt="product-image">
+        <div class="details">
+            <div>
+                <h4>{{prod.headline}}</h4>
+                <h6>₹ {{prod.price}}</h6>
+                <h6>{{prod.stock}} Stock Available</h6>    
+            </div>
+            <div class="buttons">
+                <button class="editbutton"><span class="buttontext edittext">Edit Product Details</span><img src="/assets/material-symbols_edit-square-rounded.svg" alt="edit-icon"></button>
+                <button class="deletebutton"><span class="buttontext deletetext">Remove Product</span><img src="/assets/mdi_delete-forever.svg" alt="delete-icon"></button>
+            </div>
+        </div>
+    </div>
+</div>

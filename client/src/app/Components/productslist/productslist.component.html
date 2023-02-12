@@ -1,0 +1,14 @@
+<div class="admin">
+    <div class="side-nav">
+        <h1 class="title">ARGUKART</h1>
+        <div class="menu">
+            <button (click)="assignComponent('prodList')" class="menu-item {{prodactive}}">Products List</button>
+            <button (click)="assignComponent('orderslist')" class="menu-item {{orderactive}}">Orders List</button>
+            <button (click)="assignComponent('userslist')" class="menu-item {{usersactive}}">Users List</button>
+        </div>
+        <button class="btn-logout" (click)="onLogout()">Log Out</button>
+    </div>
+    <div class="dashboard">
+        <ng-container *ngComponentOutlet="dummyComponent"></ng-container>
+    </div>
+</div>

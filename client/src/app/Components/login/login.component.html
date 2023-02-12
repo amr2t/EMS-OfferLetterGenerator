@@ -1,0 +1,18 @@
+<div class="card center">
+    <form action="" (ngSubmit)="onSubmit()" method="get">
+        <h3 class="form-title" >LOGIN</h3>
+        <div class="form-field">
+            <label for="username">Email Address:</label>
+            <input type="email" name="username" id="username" [(ngModel)]="User.email" placeholder="abc@xyz.com">
+        </div>
+        <div class="form-field">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" [(ngModel)]="User.password" placeholder="123456789" >
+        </div>
+        <span>
+            <input type="submit" value="Log In">
+            
+        </span>
+        <p>Don't have an account? <a [href]="'signup'">Sign Up Now!</a></p>
+    </form>
+</div>

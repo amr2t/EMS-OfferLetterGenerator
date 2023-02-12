@@ -1,0 +1,18 @@
+<div class="cartitem">
+    <div class="item-details">
+        <img class="prodimg" src="{{cartItem.imageurl}}" alt="product-image">
+        <div class="details">
+            <div>
+                <h1 class="title">{{cartItem.headline}}</h1>
+                <h1 class="quant">Quantity: 1</h1>    
+                <h1 class="quant">Unit Price: ₹ {{cartItem.price}}</h1>    
+            </div>
+            <h1 class="price">Price:
+                <span>₹ {{cartItem.price}}</span>
+            </h1>
+        </div>
+    </div>
+    <div>
+        <button><span class="text">Remove from cart</span><img src="/assets/mdi_delete-forever.svg" alt="delete-icon"></button>
+    </div>
+</div>

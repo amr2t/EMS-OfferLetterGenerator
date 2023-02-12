@@ -1,0 +1,18 @@
+<div class="nav-container">
+    <div>
+        <a [href]="'home'" class="nav-title">ARGUKART</a>
+    </div>
+    <div class="nav-items">
+        <div *ngIf="loggedIn"><button (click)="assignItem('myprofile')"  class="nav-link">Profile</button></div>
+        <div *ngIf="loggedIn"><button (click)="assignItem('cart')"  class="nav-link">Cart</button></div>
+        <div *ngIf="loggedIn"><button (click)="assignItem('order')"   class="nav-link">Orders</button></div>
+        <div *ngIf="loggedIn"><button (click)="assignItem('homeproduct')"  (click)="onLogout()" class="btn">LogOut</button></div>
+        <div *ngIf="!loggedIn"><button (click)="assignItem('homeproduct')"  class="nav-link">Home</button></div>
+        <div *ngIf="!loggedIn"><button (click)="assignItem('about')"  class="nav-link">About</button></div>
+        <div *ngIf="!loggedIn"><a [href]="'login'"   class="btn">Log In/Signup</a></div>
+    </div>
+</div>
+<ng-container *ngComponentOutlet="dummycomponent"></ng-container>
+<!-- <div class="cards" *ngFor="let i of product">
+    <app-cardproduct [prod]="i"></app-cardproduct>
+</div> -->
