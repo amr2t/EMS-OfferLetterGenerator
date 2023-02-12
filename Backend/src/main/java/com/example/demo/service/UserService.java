@@ -51,12 +51,13 @@ public class UserService {
 	}
 
 	public User getOldUser(User user) throws Exception{
-
+//		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		User tempObj = repo.findByEmail(user.getEmail());
 		if(tempObj==null) {
 			throw new Exception("User didn't exists");
 		}
-		else if(!user.getPassword().equals(tempObj.getPassword())) {
+//		else if(!user.getPassword().equals(tempObj.getPassword())) {
+		else if(!passwordEncoder.matches(user.getPassword(), tempObj.getPassword())) {
 			throw new Exception("Bad credentials");
 		}
 
@@ -218,5 +219,11 @@ public class UserService {
 	public List<CustomerOrder> getAllOrders() {
 		
 		return COservice.getAllOrders();
+	}
+
+	public User getUserDetails(User user) {
+		String email=user.getEmail();
+		
+		return repo.findByEmail(email);
 	}
 }
